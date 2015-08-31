@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/PepijnSenders/spati-locator#readme",
   "dependencies": {
+    "body-parser": "^1.13.3",
+    "dot": "^1.0.3",
     "express": "^4.13.3",
     "mongoose": "^4.1.4",
+    "morgan": "^1.6.1",
+    "newrelic": "^1.22.0",
     "sugar": "^1.4.1"
   }
 }
