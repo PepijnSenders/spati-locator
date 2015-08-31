@@ -1,0 +1,19 @@
+{
+  "name": "spati-locator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PepijnSenders/spati-locator.git"
+  },
+  "author": "Pepijn Senders <p.senders92@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PepijnSenders/spati-locator/issues"
+  },
+  "homepage": "https://github.com/PepijnSenders/spati-locator#readme"
+}
