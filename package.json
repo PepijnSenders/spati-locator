@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/PepijnSenders/spati-locator/issues"
   },
-  "homepage": "https://github.com/PepijnSenders/spati-locator#readme"
+  "homepage": "https://github.com/PepijnSenders/spati-locator#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.1.4",
+    "sugar": "^1.4.1"
+  }
 }
