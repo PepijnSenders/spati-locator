@@ -3,6 +3,7 @@ module.exports = (function(APP_DIR) {
     var validations = require(APP_DIR + '/lib/validations');
     var types = require(APP_DIR + '/lib/types');
     var i18n = require(APP_DIR + '/i18n');
+    var ValidationException = require(APP_DIR + '/lib/ValidationException');
 
     return function(req, res, next) {
         req.expects = function(params) {
@@ -45,7 +46,7 @@ module.exports = (function(APP_DIR) {
             }
 
             if (_errors.length) {
-                throw _errors;
+                throw new ValidationException('Validation Failed', _errors);
             } else {
                 return _params;
             }

@@ -1,7 +1,7 @@
-module.exports = (function(MONGOLAB_URI) {
+module.exports = (function() {
 
     return {
-        uri: 'mongodb://localhost:27017'
+        uri: 'mongodb://localhost:27017/spati-locator_ddb'
     };
 
-}(process.env.MONGOLAB_URI));
+}());
