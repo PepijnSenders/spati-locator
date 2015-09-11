@@ -1,14 +1,9 @@
-require('sugar');
-require(__dirname + '/../app/lib/global');
+require('./init');
 
 module.exports = (function(APP_DIR) {
 
-    var Database = require(APP_DIR + '/lib/Database');
-    var config = require(APP_DIR + '/config');
     var Spati = require(APP_DIR + '/models/Spati');
     var faker = require('faker');
-
-    Database.connect(config.get('database.uri'));
 
     console.log('Removing all spatis');
     Spati.remove({}, function(e) {
@@ -16,6 +11,7 @@ module.exports = (function(APP_DIR) {
             console.error(e);
         }
 
+        var saved = 0;
         for (var i = 0; i < 100; i++) {
             var spati = Spati({
                 loc: [faker.address.longitude(), faker.address.latitude()],
@@ -36,6 +32,12 @@ module.exports = (function(APP_DIR) {
             spati.save(function(e) {
                 if (e) {
                     console.error(e);
+                } else {
+                    saved++;
+
+                    if (saved === 100) {
+                        process.exit();
+                    }
                 }
             });
         }
