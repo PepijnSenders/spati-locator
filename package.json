@@ -1,31 +1,10 @@
 {
-  "name": "spati-locator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.8"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PepijnSenders/spati-locator.git"
-  },
-  "author": "Pepijn Senders <p.senders92@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PepijnSenders/spati-locator/issues"
-  },
-  "homepage": "https://github.com/PepijnSenders/spati-locator#readme",
   "dependencies": {
-    "body-parser": "^1.13.3",
-    "dot": "^1.0.3",
-    "express": "^4.13.3",
-    "faker": "^3.0.1",
-    "mongoose": "^4.1.4",
-    "morgan": "^1.6.1",
-    "newrelic": "^1.22.0",
-    "q": "^1.4.1",
-    "request": "^2.61.0",
-    "sugar": "^1.4.1"
+    "laravel-elixir": "^3.0.0",
+    "bootstrap-sass": "^3.0.0"
   }
 }
