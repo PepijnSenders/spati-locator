@@ -38,10 +38,10 @@ class SpatiSeeder extends Seeder
 
         factory(Spati::class, 100)->create()->each(function($spati) {
             $address = factory(Address::class)->create();
-            $address->spati()->save($spati);
+            $spati->contactInformation()->save($address);
 
             $contactInformation = factory(ContactInformation::class)->create();
-            $contactInformation->spati()->save($spati);
+            $spati->contactInformation()->save($contactInformation);
 
             $amenities = factory(Amenity::class, 5)->create();
             $spati->amenities()->saveMany($amenities);

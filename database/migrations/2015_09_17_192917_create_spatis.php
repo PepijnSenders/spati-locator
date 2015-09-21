@@ -15,9 +15,6 @@ class CreateSpatis extends Migration
         Schema::create('spatis', function(Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('contact_information_id')->index();
-            $table->integer('address_id')->index();
-
             $table->string('name');
             $table->text('description');
 

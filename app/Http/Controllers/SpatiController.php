@@ -73,4 +73,13 @@ class SpatiController extends Controller
     {
         return Spati::find($id)->contactInformation()->first();
     }
+
+    public function closest(Request $request)
+    {
+        $location = $request->input('location');
+
+        list($latitude, $longitude) = explode(',', $location);
+
+        dd(Spati::closest($latitude, $longitude));
+    }
 }

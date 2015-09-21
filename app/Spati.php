@@ -3,14 +3,30 @@
 namespace Spati;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Spati extends Model
 {
     protected $table = 'spatis';
 
+    const KILOMETERS = 6371;
+
+    public static function closest($latitude, $longitude, $count = 10)
+    {
+        return self::select('spatis.*', DB::raw(
+                '(' . self::KILOMETERS . " * acos(cos(radians($latitude))" .
+                "* cos(radians(addresses.latitude)) * cos(radians(addresses.longitude) - radians($longitude)) " .
+                "+ sin(radians($latitude)) * sin(radians(addresses.latitude)))) AS distance"
+            ))
+            ->join('addresses', 'spatis.id', '=', 'addresses.spati_id')
+            ->orderBy('distance', 'ASC')
+            ->take($count)
+            ->get();
+    }
+
     public function address()
     {
-        return $this->belongsTo('Spati\Address');
+        return $this->hasONe('Spati\Address');
     }
 
     public function alternateOpeningTimes()
@@ -25,7 +41,7 @@ class Spati extends Model
 
     public function contactInformation()
     {
-        return $this->belongsTo('Spati\ContactInformation');
+        return $this->hasONe('Spati\ContactInformation');
     }
 
     public function openingTimes()

@@ -15,6 +15,8 @@ class CreateAddress extends Migration
         Schema::create('addresses', function(Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('spati_id')->index();
+
             $table->string('street_address')->nullable(true);
             $table->string('route')->nullable(true);
             $table->string('intersection')->nullable(true);

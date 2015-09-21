@@ -10,6 +10,6 @@ class ContactInformation extends Model
 
     public function spati()
     {
-        return $this->hasOne('Spati\Spati');
+        return $this->belongsTo('Spati\Spati');
     }
 }

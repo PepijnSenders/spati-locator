@@ -15,6 +15,8 @@ class CreateContactInformation extends Migration
         Schema::create('contact_informations', function(Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('spati_id')->index();
+
             $table->string('phone')->nullable(true);
             $table->string('fax')->nullable(true);
             $table->string('cellphone')->nullable(true);
