@@ -10,17 +10,14 @@ use Spati\Picture;
 use Spati\OpeningTime;
 use Spati\AlternateOpeningTime;
 
-use Faker\Generator as FakerGenerator;
 use Illuminate\Database\DatabaseManager;
 
 class SpatiSeeder extends Seeder
 {
-    protected $faker;
     protected $databaseManager;
 
-    public function __construct(FakerGenerator $faker, DatabaseManager $databaseManager)
+    public function __construct(DatabaseManager $databaseManager)
     {
-        $this->faker = $faker;
         $this->databaseManager = $databaseManager;
     }
 
@@ -37,9 +34,9 @@ class SpatiSeeder extends Seeder
         $this->databaseManager->table('amenities')->truncate();
         $this->databaseManager->table('pictures')->truncate();
         $this->databaseManager->table('opening_times')->truncate();
-        $this->databaseManager->table('aleternate_opening_times')->truncate();
+        $this->databaseManager->table('alternate_opening_times')->truncate();
 
-        factory(Spati::class, 5)->create()->each(function($spati) {
+        factory(Spati::class, 100)->create()->each(function($spati) {
             $address = factory(Address::class)->create();
             $address->spati()->save($spati);
 

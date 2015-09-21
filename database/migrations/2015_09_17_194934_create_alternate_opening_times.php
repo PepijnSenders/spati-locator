@@ -12,7 +12,7 @@ class CreateAlternateOpeningTimes extends Migration
      */
     public function up()
     {
-        Schema::create('aleternate_opening_times', function(Blueprint $table) {
+        Schema::create('alternate_opening_times', function(Blueprint $table) {
             $table->increments('id');
 
             $table->integer('spati_id')->index();
@@ -35,6 +35,6 @@ class CreateAlternateOpeningTimes extends Migration
      */
     public function down()
     {
-        Schema::drop('aleternate_opening_times');
+        Schema::drop('alternate_opening_times');
     }
 }

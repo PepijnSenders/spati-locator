@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AlternateOpeningTime extends Model
 {
-    protected $table = 'aleternate_opening_times';
+    protected $table = 'alternate_opening_times';
 
     public function spati()
     {
