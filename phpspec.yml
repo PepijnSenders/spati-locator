@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: Spati
+        psr4_prefix: Spati
         src_path: app
