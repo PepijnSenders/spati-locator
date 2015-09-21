@@ -17,7 +17,10 @@ Route::group([
 ], function() {
     Route::get('/spatis', 'SpatiController@index');
     // Route::get('/spatis/{id}', 'SpatiController@show');
-    Route::get('/spatis/closest', 'SpatiController@closest');
+    Route::get('/spatis/closest', [
+        'middleware' => 'location',
+        'uses' => 'SpatiController@closest',
+    ]);
 
     // Route::group([
     //     'prefix' => '/spatis/{id}',

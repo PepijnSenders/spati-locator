@@ -4,14 +4,18 @@ namespace Spati;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Spati extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'spatis';
+    protected $dates = ['deleted_at'];
 
     const KILOMETERS = 6371;
 
-    public static function closest($latitude, $longitude, $count = 10)
+    public static function closest($latitude, $longitude)
     {
         return self::select('spatis.*', DB::raw(
                 '(' . self::KILOMETERS . " * acos(cos(radians($latitude))" .
@@ -19,9 +23,7 @@ class Spati extends Model
                 "+ sin(radians($latitude)) * sin(radians(addresses.latitude)))) AS distance"
             ))
             ->join('addresses', 'spatis.id', '=', 'addresses.spati_id')
-            ->orderBy('distance', 'ASC')
-            ->take($count)
-            ->get();
+            ->orderBy('distance', 'ASC');
     }
 
     public function address()

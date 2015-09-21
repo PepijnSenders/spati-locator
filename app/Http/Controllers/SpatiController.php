@@ -76,10 +76,7 @@ class SpatiController extends Controller
 
     public function closest(Request $request)
     {
-        $location = $request->input('location');
-
-        list($latitude, $longitude) = explode(',', $location);
-
-        dd(Spati::closest($latitude, $longitude));
+        return Spati::closest($request->input('latitude'), $request->input('longitude'))
+            ->paginate($request->input('count'));
     }
 }

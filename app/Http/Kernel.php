@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \Spati\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \Spati\Http\Middleware\RedirectIfAuthenticated::class,
+        'location' => \Spati\Http\Middleware\Location::class,
     ];
 }
